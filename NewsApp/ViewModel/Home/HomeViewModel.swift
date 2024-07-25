@@ -8,21 +8,37 @@
 import Foundation
 
 @MainActor
-class HomeViewModel: ObservableObject {
+final class HomeViewModel: ObservableObject {
     
     //MARK: Properties
     @Published var topNews: [Article] = []
+    @Published var bottomNews: [Article] = []
     
     init() {
-        receiveNews()
+        receiveTopNews()
+        receiveBottomNews() 
     }
     
     //MARK: Methods
-    func receiveNews() {
+    func receiveTopNews() {
         Task {
             do {
-                let articles = try await NetworkManager.shared.fetchNews()
+                let articles = try await NetworkManager.shared.fetchNews(urlString: URLManager.topNews)
                 topNews = articles.articles
+            } catch {
+                if let error = error as? NetworkError {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    
+    func receiveBottomNews() {
+        Task {
+            do {
+                let articles = try await NetworkManager.shared.fetchNews(urlString: URLManager.bottomNews)
+                bottomNews = articles.articles
             } catch {
                 if let error = error as? NetworkError {
                     print(error)

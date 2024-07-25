@@ -16,23 +16,18 @@ final class NetworkManager {
     
     //MARK: - Private Init
     private init() {
-        // for  Model: let publishedAt: Date
         decoder.dateDecodingStrategy = .iso8601
     }
     
-    
-    //MARK: - Properties
-    private let urlNews = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=a12c4539f10a4cc18b688217e9c01999"
     private let decoder = JSONDecoder()
     
     //MARK: Method
-    func fetchNews() async throws -> NewsModel {
+    func fetchNews(urlString: String) async throws -> NewsModel {
         
         // URL News
-        guard let url = URL(string: urlNews) else {
+        guard let url = URL(string: urlString) else {
             throw NetworkError.invalidURL
         }
-        
         
         // request data tuple
         let (data, response) = try await URLSession.shared.data(from: url)
