@@ -29,7 +29,7 @@ struct HomeView: View {
                     HStack(spacing: 12) {
                         ForEach(homeVM.topNews, id: \.url) { article in
                             NavigationLink {
-                                
+                                DetailNews(article: article)
                             } label: {
                                 TopNewsRow(article: article)
                             }
@@ -39,6 +39,7 @@ struct HomeView: View {
                     .padding(.horizontal)
                 }
                 .shadow(color: .black.opacity(0.2), radius: 8, x: 5, y: 8)
+                
                 
                 // Background News
                 Text("Bottom News")
@@ -52,7 +53,7 @@ struct HomeView: View {
                     HStack(spacing: 12) {
                         ForEach(homeVM.bottomNews, id: \.url) { article in
                             NavigationLink {
-                                
+                                DetailNews(article: article)
                             } label: {
                                 BottomNewsRow(article: article)
                             }
