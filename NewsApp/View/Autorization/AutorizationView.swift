@@ -12,21 +12,22 @@ struct AutorizationView: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        NavigationView {
-            VStack {
+        NavigationStack {
+           VStack {
+                 
               NavigationLink {
-                    SignUpView()
+                    SignInView()
                 } label: {
-                    Text("**Sign Up**")
+                    Text("**Sign In**")
                         .foregroundStyle(.black)
                         .frame(width: 300, height: 50)
                         .background(.blue.opacity(0.6))
                         .clipShape(Capsule())
                 }
+              
                 
-                
-                NavigationLink {
-                    SignUpView()
+               NavigationLink {
+                    SignInView()
                 } label: {
                     HStack {
                         
@@ -53,7 +54,7 @@ struct AutorizationView: View {
                 
                 
                 NavigationLink {
-                    SignUpView()
+                    SignInView()
                 } label: {
                     HStack {
                         
@@ -80,7 +81,7 @@ struct AutorizationView: View {
                 
                 
                 NavigationLink {
-                    SignUpView()
+                    SignInView()
                 } label: {
                     HStack {
                         
@@ -108,7 +109,6 @@ struct AutorizationView: View {
                 NavigationLink {
                     LoginView()
                 } label: {
-                    
                     Text("**Login**")
                 }
                 

@@ -12,9 +12,18 @@ struct LoginView: View {
     @ObservedObject var autorizationVM = AutorizationViewModel()
     @State private var email = ""
     @State private var password = ""
-
+    
     var body: some View {
-        NavigationView {
+        if autorizationVM.userAutorization == false {
+            login
+        } else if autorizationVM.userAutorization == true {
+            HomeView()
+                .navigationBarBackButtonHidden(true)
+        }
+    }
+    
+    var login: some View {
+        NavigationStack {
             VStack {
                 TextField("**Email addres**", text: $email)
                     .padding()
@@ -33,9 +42,17 @@ struct LoginView: View {
                     .padding()
                 
                 Button {
-                    //   HomeView()
-                    
                     autorizationVM.login(email: email, password: password)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        if autorizationVM.errorAlert == false {
+                            
+                            // Save userAutorization in DataBase
+                            autorizationVM.userAutorization = true
+                            
+                        }
+                    }
+                   
                 } label: {
                     Text("**Login**")
                         .frame(width: 100, height: 47)
@@ -44,6 +61,12 @@ struct LoginView: View {
                         .clipShape(Capsule())
                         .padding([.leading, .bottom, .trailing])
                         .foregroundStyle(.black.opacity(0.3))
+                }
+                
+                .alert("Error Login", isPresented: $autorizationVM.errorAlert) {
+                    
+                } message: {
+                    Text(autorizationVM.errorLogin)
                 }
             }
             .navigationTitle("Login")

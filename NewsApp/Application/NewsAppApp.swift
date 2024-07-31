@@ -6,17 +6,24 @@
 //
 
 import SwiftUI
-//import Firebase
+import Firebase
 
 @main
 struct NewsAppApp: App {
     
     init() {
-     //   FirebaseApp.configure()
+        FirebaseApp.configure()
     }
+    
+    @ObservedObject var autorizationVM = AutorizationViewModel()
+ 
     var body: some Scene {
         WindowGroup {
-            AutorizationView()
+            if autorizationVM.userAutorization == false {
+                HomeView()
+            } else {
+                HomeView()
+            }
         }
     }
 }

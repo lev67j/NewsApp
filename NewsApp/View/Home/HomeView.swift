@@ -11,19 +11,35 @@ struct HomeView: View {
     
     //MARK: Properties
     @StateObject var homeVM = HomeViewModel()
-    
+    @ObservedObject var autorizationVM = AutorizationViewModel()
+   
     //MARK: UI
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
-                
-                // Top News
-                Text("Top News")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading)
-                    .padding(.top)
+                HStack {
+                    // Top News
+                    Text("Top News")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
+                        .padding(.top)
+                    
+                    
+                    // Account button
+                    NavigationLink {
+                        AccountView()
+                        
+                    } label: {
+                        Image(systemName: "person.circle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
+                    }
+                    .foregroundColor(.blue.opacity(0.4))
+                    .padding()
+                }
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
