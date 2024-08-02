@@ -7,14 +7,31 @@
 
 import Foundation
 import FirebaseAuth
+import CoreData
+import UIKit
 
 final class AutorizationViewModel: ObservableObject {
     
-    @Published var userAutorization = false
+    // Account info
+    @Published var checkUserStatus = false 
+    @Published var userName = ""
+    @Published var userDescription = ""
+    
+    // user Avatar
+    @Published var userAvatar: Data? = nil
+    @Published var isAvatarPickerPresented = false
+    @Published var selectedAvatar: UIImage? = nil
+  
+    
+    
+    // Error and leave account
+    @Published var leaveAlert = false
     @Published var errorAlert = false
     @Published var errorLogin = ""
     @Published var errorSignIn = ""
+    @Published var errorLeave = ""
     
+  
     func login(email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if error != nil {
@@ -24,14 +41,29 @@ final class AutorizationViewModel: ObservableObject {
             }
         }
     }
-    
+
+  
     func signIn(email: String, password: String) {
-       Auth.auth().signIn(withEmail: email, password: password) { result, error in
-         if error != nil {
-             print(error?.localizedDescription ?? "failed login")
-             self.errorAlert = true
-             self.errorSignIn = "\(error?.localizedDescription ?? "failed login")"
-          }
-      }
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if error != nil {
+                print(error?.localizedDescription ?? "failed login")
+                self.errorAlert = true
+                self.errorSignIn = "\(error?.localizedDescription ?? "failed login")"
+            }
+        }
+    }
+    
+    
+    func leaveAccount() {
+        do {
+            try Auth.auth().signOut()
+            self.checkUserStatus = false
+            self.userName = ""
+            self.userDescription = ""
+        } catch {
+            self.errorAlert = true
+            self.errorLeave = "\(error.localizedDescription)"
+            
+        }
     }
 }

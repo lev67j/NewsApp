@@ -12,7 +12,8 @@ struct HomeView: View {
     //MARK: Properties
     @StateObject var homeVM = HomeViewModel()
     @ObservedObject var autorizationVM = AutorizationViewModel()
-   
+  
+    
     //MARK: UI
     var body: some View {
         NavigationView {
@@ -30,12 +31,21 @@ struct HomeView: View {
                     // Account button
                     NavigationLink {
                         AccountView()
-                        
                     } label: {
-                        Image(systemName: "person.circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40, height: 40)
+                         if let selectedAvatar = autorizationVM.selectedAvatar {
+                            Image(uiImage: selectedAvatar)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 100, height: 100)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .clipShape(Circle())
+                            
+                        } else {
+                            Image(systemName: "person.circle")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                        }
                     }
                     .foregroundColor(.blue.opacity(0.4))
                     .padding()

@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct LoginView: View {
-    
+    @FetchRequest(entity: Autorization.entity(), sortDescriptors: []) var autorization: FetchedResults<Autorization>
     @ObservedObject var autorizationVM = AutorizationViewModel()
+    @Environment(\.managedObjectContext) var managedObjectContext
     @State private var email = ""
     @State private var password = ""
     
     var body: some View {
-        if autorizationVM.userAutorization == false {
-            login
-        } else if autorizationVM.userAutorization == true {
+        if autorizationVM.checkUserStatus {
             HomeView()
                 .navigationBarBackButtonHidden(true)
+        } else {
+            login
         }
     }
     
@@ -46,13 +47,9 @@ struct LoginView: View {
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         if autorizationVM.errorAlert == false {
-                            
-                            // Save userAutorization in DataBase
-                            autorizationVM.userAutorization = true
-                            
+                            autorizationVM.checkUserStatus = true
                         }
                     }
-                   
                 } label: {
                     Text("**Login**")
                         .frame(width: 100, height: 47)

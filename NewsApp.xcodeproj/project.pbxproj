@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B20DE622C5CC5AE0076EA65 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20DE612C5CC5AE0076EA65 /* ImagePicker.swift */; };
 		0B71DC822C5A496E009344A2 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B71DC812C5A496E009344A2 /* AccountView.swift */; };
 		0B71DC882C5A6DAB009344A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B71DC872C5A6DAB009344A2 /* GoogleService-Info.plist */; };
-		0B71DC8A2C5A78D0009344A2 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B71DC892C5A78D0009344A2 /* AccountViewModel.swift */; };
+		0B73BEFC2C5AB3C7003A2CBA /* NewsDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B73BEFA2C5AB3C7003A2CBA /* NewsDataModel.xcdatamodeld */; };
+		0B73BEFE2C5AB44B003A2CBA /* ManagerDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B73BEFD2C5AB44B003A2CBA /* ManagerDB.swift */; };
+		0B76FEED2C5B6C2B0072515F /* DistribiutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B76FEEC2C5B6C2B0072515F /* DistribiutionView.swift */; };
+		0B76FEEF2C5B8DF90072515F /* AutorizationDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B76FEEE2C5B8DF90072515F /* AutorizationDB.swift */; };
 		0B869CA02C569B140006CAD9 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0B869C9F2C569B140006CAD9 /* FirebaseAnalytics */; };
 		0B869CA22C569B140006CAD9 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 0B869CA12C569B140006CAD9 /* FirebaseAnalyticsOnDeviceConversion */; };
 		0B869CA42C569B140006CAD9 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0B869CA32C569B140006CAD9 /* FirebaseAnalyticsSwift */; };
@@ -81,9 +85,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B20DE612C5CC5AE0076EA65 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		0B71DC812C5A496E009344A2 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		0B71DC872C5A6DAB009344A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0B71DC892C5A78D0009344A2 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		0B73BEFB2C5AB3C7003A2CBA /* NewsDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsDataModel.xcdatamodel; sourceTree = "<group>"; };
+		0B73BEFD2C5AB44B003A2CBA /* ManagerDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerDB.swift; sourceTree = "<group>"; };
+		0B76FEEC2C5B6C2B0072515F /* DistribiutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistribiutionView.swift; sourceTree = "<group>"; };
+		0B76FEEE2C5B8DF90072515F /* AutorizationDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationDB.swift; sourceTree = "<group>"; };
 		0B8D50512C54A096006C030B /* AutorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationViewModel.swift; sourceTree = "<group>"; };
 		0B900C262C521F8F00CDE36E /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		0B900C292C521FE300CDE36E /* Text+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+.swift"; sourceTree = "<group>"; };
@@ -169,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				0B8D50512C54A096006C030B /* AutorizationViewModel.swift */,
-				0B71DC892C5A78D0009344A2 /* AccountViewModel.swift */,
 			);
 			path = Auntificated;
 			sourceTree = "<group>";
@@ -180,6 +187,7 @@
 				0B900C262C521F8F00CDE36E /* Date+.swift */,
 				0B900C292C521FE300CDE36E /* Text+.swift */,
 				0B900C352C527F4000CDE36E /* SizeConstants.swift */,
+				0B20DE612C5CC5AE0076EA65 /* ImagePicker.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -275,9 +283,10 @@
 		0B9A964A2C50ACC700996983 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				0B9A96202C50ACB200996983 /* NewsAppApp.swift */,
 				0B9A96242C50ACB300996983 /* Assets.xcassets */,
 				0B71DC872C5A6DAB009344A2 /* GoogleService-Info.plist */,
+				0B9A96202C50ACB200996983 /* NewsAppApp.swift */,
+				0B76FEEC2C5B6C2B0072515F /* DistribiutionView.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -332,6 +341,9 @@
 		0BB9ADAA2C590DE100EE43D0 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				0B73BEFA2C5AB3C7003A2CBA /* NewsDataModel.xcdatamodeld */,
+				0B76FEEE2C5B8DF90072515F /* AutorizationDB.swift */,
+				0B73BEFD2C5AB44B003A2CBA /* ManagerDB.swift */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -501,10 +513,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B900C3E2C5286E300CDE36E /* AutorizationView.swift in Sources */,
-				0B71DC8A2C5A78D0009344A2 /* AccountViewModel.swift in Sources */,
 				0B9A96522C50AD2C00996983 /* NetworkManager.swift in Sources */,
 				0B900C312C5237BC00CDE36E /* BottomNewsRow.swift in Sources */,
 				0B9A96232C50ACB200996983 /* HomeView.swift in Sources */,
+				0B73BEFE2C5AB44B003A2CBA /* ManagerDB.swift in Sources */,
 				0B9A965A2C50B71200996983 /* HomeViewModel.swift in Sources */,
 				0B900C2F2C5233E000CDE36E /* URLManager.swift in Sources */,
 				0B9A96562C50B33C00996983 /* NetworkError.swift in Sources */,
@@ -512,12 +524,16 @@
 				0B900C362C527F4000CDE36E /* SizeConstants.swift in Sources */,
 				0B9A96542C50B10E00996983 /* NetworkModel.swift in Sources */,
 				0B900C332C5279E500CDE36E /* DetailNews.swift in Sources */,
+				0B73BEFC2C5AB3C7003A2CBA /* NewsDataModel.xcdatamodeld in Sources */,
+				0B76FEEF2C5B8DF90072515F /* AutorizationDB.swift in Sources */,
 				0B9A96212C50ACB200996983 /* NewsAppApp.swift in Sources */,
 				0B900C402C5286E300CDE36E /* SignInView.swift in Sources */,
 				0B71DC822C5A496E009344A2 /* AccountView.swift in Sources */,
 				0B8D50522C54A096006C030B /* AutorizationViewModel.swift in Sources */,
 				0B900C2C2C52267100CDE36E /* TopNewsRow.swift in Sources */,
 				0B900C272C521F8F00CDE36E /* Date+.swift in Sources */,
+				0B76FEED2C5B6C2B0072515F /* DistribiutionView.swift in Sources */,
+				0B20DE622C5CC5AE0076EA65 /* ImagePicker.swift in Sources */,
 				0B900C3F2C5286E300CDE36E /* LoginView.swift in Sources */,
 				0B900C2A2C521FE300CDE36E /* Text+.swift in Sources */,
 			);
@@ -1003,6 +1019,19 @@
 			productName = "FirebaseVertexAI-Preview";
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		0B73BEFA2C5AB3C7003A2CBA /* NewsDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0B73BEFB2C5AB3C7003A2CBA /* NewsDataModel.xcdatamodel */,
+			);
+			currentVersion = 0B73BEFB2C5AB3C7003A2CBA /* NewsDataModel.xcdatamodel */;
+			path = NewsDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0B9A96152C50ACB200996983 /* Project object */;
 }

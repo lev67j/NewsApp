@@ -10,15 +10,16 @@ import SwiftUI
 struct SignInView: View {
     
     @ObservedObject var autorizationVM = AutorizationViewModel()
+    @Environment(\.managedObjectContext) var managedObjectContext
     @State private var email = ""
     @State private var password = ""
     
     var body: some View {
-        if autorizationVM.userAutorization == false {
-            signIn
-        } else if autorizationVM.userAutorization == true {
+        if autorizationVM.checkUserStatus {
             HomeView()
                 .navigationBarBackButtonHidden(true)
+        } else {
+            signIn
         }
     }
     
@@ -44,13 +45,10 @@ struct SignInView: View {
                 
                 Button {
                     autorizationVM.signIn(email: email, password: password)
-                    
+                  
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         if autorizationVM.errorAlert == false {
-                            
-                            // Save userAutorization in DataBase
-                            autorizationVM.userAutorization = true
-                            
+                            autorizationVM.checkUserStatus = true
                         }
                     }
                 } label: {
@@ -73,6 +71,7 @@ struct SignInView: View {
         }
     }
 }
+
 #Preview {
     SignInView()
 }
