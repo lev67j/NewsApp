@@ -4,7 +4,7 @@
 //
 //  Created by Lev Vlasov on 27.07.2024.
 //
-
+import GoogleSignIn
 import Foundation
 import FirebaseAuth
 import CoreData
@@ -14,8 +14,8 @@ final class AutorizationViewModel: ObservableObject {
     
     // Account info
     @Published var checkUserStatus = false 
-    @Published var userName = ""
-    @Published var userDescription = ""
+    @Published var userName = "No name"
+    @Published var userDescription = "No description"
     
     // user Avatar
     @Published var userAvatar: Data? = nil
@@ -60,6 +60,9 @@ final class AutorizationViewModel: ObservableObject {
             self.checkUserStatus = false
             self.userName = ""
             self.userDescription = ""
+            
+            GIDSignIn.sharedInstance.signOut()
+            
         } catch {
             self.errorAlert = true
             self.errorLeave = "\(error.localizedDescription)"

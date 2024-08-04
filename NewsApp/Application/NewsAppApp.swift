@@ -66,11 +66,11 @@ struct NewsAppApp: App {
         } catch {
             print("Failed saved data: \(error)")
         }
-      
+        
         
         print(  autorizationVM.userDescription,
                 autorizationVM.userName,
-                "autorizationVM.userAvatar: \(autorizationVM.userAvatar != nil ? "has value" : "no value")"
+                autorizationVM.userAvatar ?? "No avatar"
         )
     }
 }

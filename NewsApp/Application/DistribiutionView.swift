@@ -5,13 +5,14 @@
 //  Created by Lev Vlasov on 01.08.2024.
 //
 
-import Firebase
+import FirebaseAuth
 import SwiftUI
 
 struct DistribiutionView: View {
     
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var autorizationVM = AutorizationViewModel()
+    
     
     init() {
         checkUser()

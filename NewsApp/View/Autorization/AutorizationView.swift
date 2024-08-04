@@ -6,118 +6,51 @@
 //
 
 import SwiftUI
+import AuthenticationServices
+import GoogleSignInSwift
 
 struct AutorizationView: View {
     
     @Environment(\.presentationMode) var presentationMode
+    @StateObject var autorizationVM = AutorizationViewModel()
     
     var body: some View {
+        if autorizationVM.checkUserStatus {
+            HomeView()
+                .navigationBarBackButtonHidden(true)
+        } else {
+            autorization
+        }
+    }
+    
+    var autorization: some View {
         NavigationStack {
-           VStack {
-                 
-              NavigationLink {
-                    SignInView()
-                } label: {
-                    Text("**Sign In**")
-                        .foregroundStyle(.black)
-                        .frame(width: 300, height: 50)
-                        .background(.blue.opacity(0.6))
-                        .clipShape(Capsule())
-                }
-              
-                
-               NavigationLink {
-                    SignInView()
-                } label: {
-                    HStack {
-                        
-                        Image("facebookLogo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40, height: 20)
-                            .imageScale(.large)
-                            .padding(6)
-                        
-                      
-                        
-                        Text("**Sign in with Facebook**")
-                            .padding()
-                        
-                        Spacer()
-                    }
-                    .foregroundStyle(.white)
-                    .frame(width: 300, height: 50)
-                    .background(.black)
-                    .clipShape(Capsule())
-                    .overlay(RoundedRectangle(cornerRadius: 50).stroke())
-                }
+            VStack {
                 
                 
-                NavigationLink {
-                    SignInView()
-                } label: {
-                    HStack {
-                        
-                        Image("googleLogo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40, height: 20)
-                            .imageScale(.large)
-                            .padding(6)
-                        
-                        
-                        
-                        Text("**Sign in with Google**")
-                            .padding()
-                        
-                        Spacer()
-                    }
-                    .foregroundStyle(.white)
-                    .frame(width: 300, height: 50)
-                    .background(.black)
-                    .clipShape(Capsule())
-                    .overlay(RoundedRectangle(cornerRadius: 50).stroke())
-                }
+                // Sign in with Email
+                SignInEmail()
                 
+                // Sign in with Google
+                SignInGoogle()
                 
-                NavigationLink {
-                    SignInView()
-                } label: {
-                    HStack {
-                        
-                        Image("appleLogo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40, height: 20)
-                            .imageScale(.large)
-                            .padding(6)
-                        
-                        
-                        
-                        Text("**Sign in with Apple**")
-                            .padding()
-                        
-                        Spacer()
-                    }
-                    .foregroundStyle(.white)
-                    .frame(width: 300, height: 50)
-                    .background(.black)
-                    .clipShape(Capsule())
-                    .overlay(RoundedRectangle(cornerRadius: 50).stroke())
-                }
+                // Sign in with Apple
+                SignInApple()
+                
                 
                 NavigationLink {
                     LoginView()
                 } label: {
                     Text("**Login**")
                 }
-                
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }
 
+
+
 #Preview {
-    AutorizationView()
+     AutorizationView()
 }
