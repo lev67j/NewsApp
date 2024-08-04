@@ -1,4 +1,4 @@
-# Darts Score App
+# News App
 
 Pet-project по разработке мобильного приложения под iOS
 - язык программирования: **Swift**;
