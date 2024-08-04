@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>874844510359-vcg7re6tl63iju2tdhcvnbb49kc1t0ca.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.874844510359-vcg7re6tl63iju2tdhcvnbb49kc1t0ca</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAgSL9VnKLhWtHbor8s5xauG37v2WXSUkU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>874844510359</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Lev-Vlasov.NewsApp</string>
+	<key>PROJECT_ID</key>
+	<string>newsapp-56378</string>
+	<key>STORAGE_BUCKET</key>
+	<string>newsapp-56378.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:874844510359:ios:3f352cfac2642d0231b1d2</string>
+</dict>
+</plist>
